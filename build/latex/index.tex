@@ -1,0 +1,63 @@
+Build by making a build directory (i.\+e. {\ttfamily build/}), run {\ttfamily cmake} in that dir, and then use {\ttfamily make} to build the desired target.
+
+Requirements\+: cmake, gnuplot, doxygen + dot
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{> mkdir build \&\& cd build}
+\DoxyCodeLine{> cmake .. \# options: -\/DCMAKE\_BUILD\_TYPE=[Debug | Coverage | Release], Debug is default}
+\DoxyCodeLine{> make}
+\DoxyCodeLine{> ./main}
+\DoxyCodeLine{> make test      \# Makes and runs the tests.}
+\DoxyCodeLine{> make coverage  \# Generate a coverage report.}
+\DoxyCodeLine{> make doc       \# Generate html documentation.}
+\end{DoxyCode}
+
+
+Things to remember\+:
+\begin{DoxyItemize}
+\item changes to zad3/\+C\+Make\+Lists.\+txt with new files added, i.\+e.\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\# -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#                         Locate files (change as needed).}}
+\DoxyCodeLine{\textcolor{preprocessor}{\# -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{set(SOURCES          \# All .cpp files in src/}
+\DoxyCodeLine{    src/lacze\_do\_gnuplota}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_bryla}{Bryla}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_dron}{Dron}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_graniastoslup6}{Graniastoslup6}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_macierz}{Macierz3x3}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_plaszczyzna}{Plaszczyzna}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_prostopadloscian}{Prostopadloscian}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_scena}{Scena}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_wektor}{Wektor3D}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_gran}{Gran}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_gora}{Gora}}.cpp}
+\DoxyCodeLine{    src/\mbox{\hyperlink{class_plaskowyz}{Plaskowyz}}.cpp}
+\DoxyCodeLine{)}
+\DoxyCodeLine{set(TESTFILES        \textcolor{preprocessor}{\# All .cpp files in tests/}}
+\DoxyCodeLine{    Vector2D.cpp}
+\DoxyCodeLine{    Matrix2x2.cpp}
+\DoxyCodeLine{    Rectangle.cpp}
+\DoxyCodeLine{)}
+\DoxyCodeLine{set(LIBRARY\_NAME zad3)  \textcolor{preprocessor}{\# Default name for the library built from src}\textcolor{comment}{/*.cpp (change if you wish)}}
+\end{DoxyCode}
+
+\item changes to zad3/tests/\+C\+Make\+Lists.\+txt with new files added, i.\+e.\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\# List all files containing tests. (Change as needed)}}
+\DoxyCodeLine{set(TESTFILES        \# All .cpp files in tests/}
+\DoxyCodeLine{    main.cpp}
+\DoxyCodeLine{    Wektor2D.cpp}
+\DoxyCodeLine{    Macierz2x2.cpp}
+\DoxyCodeLine{    Prostokat.cpp}
+\DoxyCodeLine{)}
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+The {\ttfamily main.\+cpp} in the folder {\ttfamily tests} is needed. Only there we define {\ttfamily \#define D\+O\+C\+T\+E\+S\+T\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T\+\_\+\+W\+I\+T\+H\+\_\+\+M\+A\+IN}.
+
+The main loop of the program is in the {\ttfamily app} folder. 
